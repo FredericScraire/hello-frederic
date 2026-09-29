@@ -1,8 +1,10 @@
 const button = document.getElementById('greet-button');
 const heading = document.getElementById('greeting');
 const countDisplay = document.getElementById('click-count');
+const historyList = document.getElementById('history-list');
 
 let clickCount = 0;
+const clickHistory = [];
 
 function getGreetingMessage(count) {
   if (count >= 20) {
@@ -29,9 +31,21 @@ function getCountMessage(count) {
   }
 }
 
+function renderHistory() {
+  let listHTML = '';
+  for (let i = 0; i < clickHistory.length; i++) {
+    listHTML += `<li>${clickHistory[i]}</li>`;
+  }
+  historyList.innerHTML = listHTML;
+}
+
 button.addEventListener('click', () => {
   clickCount = clickCount + 1;
 
-  heading.innerHTML = withBlueFirstLetters(getGreetingMessage(clickCount));
+  const greeting = getGreetingMessage(clickCount);
+  heading.innerHTML = withBlueFirstLetters(greeting);
   countDisplay.textContent = getCountMessage(clickCount);
+
+  clickHistory.push(`Clic ${clickCount} : ${greeting}`);
+  renderHistory();
 });
