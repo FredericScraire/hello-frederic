@@ -4,6 +4,16 @@ const countDisplay = document.getElementById('click-count');
 
 let clickCount = 0;
 
+function getGreetingMessage(count) {
+  if (count >= 20) {
+    return 'Ok, impressionnant.';
+  } else if (count >= 5) {
+    return "Tu ne vas pas t'arrêter, hein ?";
+  } else {
+    return 'You clicked the button!';
+  }
+}
+
 function withBlueFirstLetters(text) {
   return text
     .split(' ')
@@ -20,8 +30,8 @@ function getCountMessage(count) {
 }
 
 button.addEventListener('click', () => {
-  heading.innerHTML = withBlueFirstLetters('You clicked the button!');
-
   clickCount = clickCount + 1;
+
+  heading.innerHTML = withBlueFirstLetters(getGreetingMessage(clickCount));
   countDisplay.textContent = getCountMessage(clickCount);
 });
