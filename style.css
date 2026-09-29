@@ -67,3 +67,21 @@ button:hover {
 .first-letter {
   color: blue;
 }
+
+.figma-card {
+  width: 349px;
+  height: 375px;
+  box-sizing: border-box;
+  background-color: #0f7cf1;
+  border: 1px solid black;
+  border-radius: 12px;
+  padding: 54px 0 0 79px;
+  margin-top: 2rem;
+}
+
+.figma-card-label {
+  margin: 0;
+  font-family: "Inter", -apple-system, sans-serif;
+  font-size: 12px;
+  color: black;
+}
